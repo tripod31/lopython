@@ -32,9 +32,8 @@ def disp_str(arg):
     oDialog.getControl("button_up").addActionListener(MyActionListener(oDialog,up))
     oDialog.getControl("button_down").addActionListener(MyActionListener(oDialog,down))
     oDialog.getControl("button_close").addActionListener(MyActionListener(oDialog,end_dialog))
-    
-    down(oDialog)    
-    #display dailog
+      
+    #display dialog
     oDialog.execute()
     
 #redisp text of active cell in dialog
