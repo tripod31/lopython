@@ -4,74 +4,80 @@ import unohelper
 from com.sun.star.awt import XActionListener    #@UnresolvedImport
 
 class MyActionListener( unohelper.Base, XActionListener ):
-    def __init__(self, dialog,callback):
-        self.dialog = dialog
+    def __init__(self,callback):
         self._callback = callback
 
     def actionPerformed(self, actionEvent):
-        self._callback(self.dialog)
+        self._callback()
 
-#disp text of active cell in dialog
+#dialog class
+class MyDialog():
+
+    #disp text of active cell in dialog
+    def __init__(self):
+        #create dialog
+        if IS_EXECUTED_EXTERNAL:
+            ctx = XSCRIPTCONTEXT.getComponentContext()  #get context from XSCRIPTCONTEXT
+            dp = ctx.getServiceManager().createInstanceWithContext("com.sun.star.awt.DialogProvider", ctx)
+        else:
+            localctx = uno.getComponentContext()  #get local component context
+            dp = localctx.getServiceManager().createInstanceWithContext("com.sun.star.awt.DialogProvider", localctx)
+        
+        #create dialog as member
+        self.oDialog = dp.createDialog("vnd.sun.star.script:Standard.Dialog1?location=application")
+        
+        self.redisp()
+    
+        #set callback funcs
+        self.oDialog.getControl("button_close").addActionListener(MyActionListener(self.end_dialog))
+        self.oDialog.getControl("button_ok").addActionListener(MyActionListener(self.ok))
+        self.oDialog.getControl("button_redisp").addActionListener(MyActionListener(self.redisp))
+        self.oDialog.getControl("button_up").addActionListener(MyActionListener(self.up))
+        self.oDialog.getControl("button_down").addActionListener(MyActionListener(self.down))
+        self.oDialog.getControl("button_close").addActionListener(MyActionListener(self.end_dialog))
+          
+        #display dialog
+        self.oDialog.execute()
+        
+    #redisp text of active cell in dialog
+    def redisp(self):
+        oText =self.oDialog.getControl ("TextField1")
+        oCell = get_active_cell()
+        if oCell:
+            oText.Text = oCell.Text.String
+    
+    '''
+    callback funcs
+    '''
+    
+    #set text of dialog to active cell
+    def set_str(self):
+        oText =self.oDialog.getControl ("TextField1")
+        oCell = get_active_cell()
+        if oCell.Text.String!=oText.Text:
+            oCell.Text.String=oText.Text
+    
+    def ok(self):
+        self.set_str()
+        self.oDialog.endExecute()
+    
+    #↑
+    def up(self):
+        self.set_str()
+        if activate_cell_offset(0,-1):
+            self.redisp()
+    
+    #↓
+    def down(self):
+        self.set_str()
+        if activate_cell_offset(0,1):
+            self.redisp()
+    
+    def end_dialog(self):
+        self.oDialog.endExecute()        
+
 def disp_str(arg):
-    #create dialog
-    if IS_EXECUTED_EXTERNAL:
-        ctx = XSCRIPTCONTEXT.getComponentContext()  #get context from XSCRIPTCONTEXT
-        dp = ctx.getServiceManager().createInstanceWithContext("com.sun.star.awt.DialogProvider", ctx)
-    else:
-        localctx = uno.getComponentContext()  #get local component context
-        dp = localctx.getServiceManager().createInstanceWithContext("com.sun.star.awt.DialogProvider", localctx)
-    
-    oDialog = dp.createDialog("vnd.sun.star.script:Standard.Dialog1?location=application")
-    
-    redisp(oDialog)
-
-    #set callback funcs
-    oDialog.getControl("button_close").addActionListener(MyActionListener(oDialog,end_dialog))
-    oDialog.getControl("button_ok").addActionListener(MyActionListener(oDialog,ok))
-    oDialog.getControl("button_redisp").addActionListener(MyActionListener(oDialog,redisp))
-    oDialog.getControl("button_up").addActionListener(MyActionListener(oDialog,up))
-    oDialog.getControl("button_down").addActionListener(MyActionListener(oDialog,down))
-    oDialog.getControl("button_close").addActionListener(MyActionListener(oDialog,end_dialog))
-      
-    #display dialog
-    oDialog.execute()
-    
-#redisp text of active cell in dialog
-def redisp(oDialog):
-    oText =oDialog.getControl ("TextField1")
-    oCell = get_active_cell()
-    if oCell:
-        oText.Text = oCell.Text.String
-
-'''
-callback funcs
-'''
-
-#set text of dialog to active cell
-def set_str(oDialog):
-    oText =oDialog.getControl ("TextField1")
-    oCell = get_active_cell()
-    if oCell.Text.String!=oText.Text:
-        oCell.Text.String=oText.Text
-
-def ok(oDialog):
-    set_str(oDialog)
-    oDialog.endExecute()
-
-#↑
-def up(oDialog):
-    set_str(oDialog)
-    if activate_cell_offset(0,-1):
-        redisp(oDialog)
-
-#↓
-def down(oDialog):
-    set_str(oDialog)
-    if activate_cell_offset(0,1):
-        redisp(oDialog)
-
-def end_dialog(oDialog):
-    oDialog.endExecute()        
+    dialog = MyDialog()
 
  
 '''
