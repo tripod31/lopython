@@ -1,0 +1,11 @@
+.project
+.pydev*
+.git/
+.settings/
+.*.html
+__pycache__/*
+*.pyc
+
+/test/
+/test.xml
+/module1.bas
