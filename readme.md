@@ -1,7 +1,6 @@
 lopython
 =====
-python macro sample for LibreOffice Calc.  
-It's eclipse project.
+It's eclipse project,simple python macro sample for LibreOffice Calc.  
 
 develpment environment
 -----
@@ -55,6 +54,7 @@ In my case the path is
 To run script in Eclipse
 -----
 ###### Lunch LibreOffice in listening module
+This is needed before you run script in Eclise.  
 I use ant task to do this.  
 Edit LibreOfiice executable path in build.xml.
 In my case the path is  
