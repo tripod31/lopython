@@ -6,7 +6,7 @@
   <dlg:button dlg:id="button_ok" dlg:tab-index="1" dlg:left="7" dlg:top="293" dlg:width="54" dlg:height="15" dlg:value="OK">
    <script:event script:event-name="on-mousedown" script:macro-name="vnd.sun.star.script:test.py$ok?language=Python&amp;location=share" script:language="Script"/>
   </dlg:button>
-  <dlg:button dlg:id="button_redisp" dlg:tab-index="3" dlg:left="70" dlg:top="293" dlg:width="54" dlg:height="15" dlg:value="読み直し">
+  <dlg:button dlg:id="button_redisp" dlg:tab-index="3" dlg:left="70" dlg:top="293" dlg:width="54" dlg:height="15" dlg:value="Redisp">
    <script:event script:event-name="on-mousedown" script:macro-name="vnd.sun.star.script:test.py$redisp?language=Python&amp;location=share" script:language="Script"/>
   </dlg:button>
   <dlg:button dlg:id="button_up" dlg:tab-index="4" dlg:left="132" dlg:top="293" dlg:width="54" dlg:height="15" dlg:value="↑">
@@ -15,7 +15,7 @@
   <dlg:button dlg:id="button_down" dlg:tab-index="5" dlg:left="190" dlg:top="293" dlg:width="54" dlg:height="15" dlg:value="↓">
    <script:event script:event-name="on-mousedown" script:macro-name="vnd.sun.star.script:test.py$down?language=Python&amp;location=share" script:language="Script"/>
   </dlg:button>
-  <dlg:button dlg:id="button_close" dlg:tab-index="2" dlg:left="330" dlg:top="293" dlg:width="54" dlg:height="15" dlg:value="閉じる">
+  <dlg:button dlg:id="button_close" dlg:tab-index="2" dlg:left="330" dlg:top="293" dlg:width="54" dlg:height="15" dlg:value="Close">
    <script:event script:event-name="on-mousedown" script:macro-name="vnd.sun.star.script:test.py$end_dialog?language=Python&amp;location=share" script:language="Script"/>
   </dlg:button>
  </dlg:bulletinboard>

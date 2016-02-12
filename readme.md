@@ -1,12 +1,14 @@
 lopython
 =====
-python macro sample for LibreOffice.
+python macro sample for LibreOffice Calc.  
 It's eclipse project.
 
 develpment environment
 -----
-Eclipse 4.5.1  
-Libre offce 5.1  
++ Eclipse 4.5.1  
++ Eclipse Pydev Plugin 4.5.4  
++ LibreOffce 5.1  
++ LibreOffice SDK 5.1
 
 Files
 -----
@@ -34,3 +36,26 @@ In my case the directory is
 
 Eclipse Setup
 -----
+This is needed to run script in Eclipse.  
+###### Add python interpreter
+In Window->preference.  
+
+In my case the path is  
+```"D:\Program Files (x86)\LibreOffice 5\program\python.exe"```
+
+###### Apply interpreter
+In project property->"Pydev Interpreter/Grammer".  
+Set Interpreter above.
+
+###### Add library path
+In project property->"Pydev PYTHONPATH"->"External Libraries"
+In my case the path is  
+```"D:\Program Files (x86)\LibreOffice 5\program"```
+
+About Macro
+-----
+It displays content of active cell.  
+It can move active cell to up/downward.  
+You can modify text in textbox.   
+
+<img src="http://www.geocities.jp/tripod31hoge/images/lopython.jpg"/>
