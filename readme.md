@@ -31,7 +31,9 @@ import this dialog to libre office.
 ###### copy test.py to LibreOffice directory
 This is needed to run script as macro.  
 In my case the directory is  
-```"D:\Program Files (x86)\LibreOffice 5\share\Scripts\python\"```
+```
+"D:\Program Files (x86)\LibreOffice 5\share\Scripts\python\"
+```
 
 Setup Eclipse
 -----
@@ -40,26 +42,32 @@ This is needed to run script in Eclipse.
 In Window->preference.  
 
 In my case the path is  
-```"D:\Program Files (x86)\LibreOffice 5\program\python.exe"```
+```
+"D:\Program Files (x86)\LibreOffice 5\program\python.exe"
+```
 
 ###### Apply interpreter
 In project property->"Pydev Interpreter/Grammer".  
 Set Interpreter above.
 
 ###### Add library path
-In project property->"Pydev PYTHONPATH"->"External Libraries"
+In project property->"Pydev PYTHONPATH"->"External Libraries"  
 In my case the path is  
-```"D:\Program Files (x86)\LibreOffice 5\program"```
+```
+"D:\Program Files (x86)\LibreOffice 5\program"
+```
 
 To run script in Eclipse
 -----
 ###### Lunch LibreOffice in listening module
 This is needed before you run script in Eclise.  
-I use ant task to do this.  
-Edit LibreOfiice executable path in build.xml.
+I use Ant task to do this.  
+Edit LibreOfiice executable path in build.xml.  
 In my case the path is  
-```"D:\Program Files (x86)\LibreOffice 5\program\soffice.exe"```  
-In Eclipse,select build.xml->"Run As"->"Ant Build..."->"Taget"Tab->Check "Exce soffice"=>"Run".
+```
+"D:\Program Files (x86)\LibreOffice 5\program\soffice.exe"
+```  
+In Eclipse,select build.xml->"Run As"->"Ant Build..."->"Taget"Tab->Check "Exec soffice"=>"Run".
 
 About Macro
 -----
