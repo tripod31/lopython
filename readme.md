@@ -24,7 +24,7 @@ This is needed when run test.py externaly,not macro.
 + test.ods  
 Calc file with button to execute macro.
 
-Setup
+Setup LibreOffice
 -----
 ###### Import Dialog1.xdl   
 import this dialog to libre office.
@@ -34,7 +34,7 @@ This is needed to run script as macro.
 In my case the directory is  
 ```"D:\Program Files (x86)\LibreOffice 5\share\Scripts\python\"```
 
-Eclipse Setup
+Setup Eclipse
 -----
 This is needed to run script in Eclipse.  
 ###### Add python interpreter
@@ -51,6 +51,15 @@ Set Interpreter above.
 In project property->"Pydev PYTHONPATH"->"External Libraries"
 In my case the path is  
 ```"D:\Program Files (x86)\LibreOffice 5\program"```
+
+To run script in Eclipse
+-----
+###### Lunch LibreOffice in listening module
+I use ant task to do this.  
+Edit LibreOfiice executable path in build.xml.
+In my case the path is  
+```"D:\Program Files (x86)\LibreOffice 5\program\soffice.exe"```  
+In Eclipse,select build.xml->"Run As"->"Ant Build..."->"Taget"Tab->Check "Exce soffice"=>"Run".
 
 About Macro
 -----
