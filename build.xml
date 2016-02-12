@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<project name="antsample">
+  <property name="soffice" location="D:\Program Files (x86)\LibreOffice 5\program\soffice.exe"/>
+  <property name="lupdate" location="D:\devel\Python3\Lib\site-packages\PyQt4\pylupdate4.exe"/>
+  <property name="pygettext" location="D:\devel\Python3\tools\i18n\pygettext.py"/>
+  <property name="msgfmt" location="D:\devel\Python3\tools\i18n\msgfmt.py"/>
+
+  <target name="exec_soffice">
+    <exec executable="${soffice}">
+        <arg line="--accept=socket,host=localhost,port=2002;urp;StarOffice.ServiceManager"/>
+    </exec>
+  </target>
+  
+
+</project>
