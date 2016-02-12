@@ -10,11 +10,13 @@ class MyActionListener( unohelper.Base, XActionListener ):
     def actionPerformed(self, actionEvent):
         self._callback()
 
-#dialog class
-class MyDialog():
 
-    #disp text of active cell in dialog
+class MyDialog():
+    """dialog class"""
+
     def __init__(self):
+        """disp text of active cell in dialog"""
+        
         #create dialog
         if IS_EXECUTED_EXTERNAL:
             ctx = XSCRIPTCONTEXT.getComponentContext()  #get context from XSCRIPTCONTEXT
@@ -39,8 +41,10 @@ class MyDialog():
         #display dialog
         self.oDialog.execute()
         
-    #redisp text of active cell in dialog
+    
     def redisp(self):
+        """redisp text of active cell in dialog"""
+        
         oText =self.oDialog.getControl ("TextField1")
         oCell = get_active_cell()
         if oCell:
@@ -50,8 +54,10 @@ class MyDialog():
     callback funcs
     '''
     
-    #set text of dialog to active cell
+    
     def set_str(self):
+        
+
         oText =self.oDialog.getControl ("TextField1")
         oCell = get_active_cell()
         if oCell.Text.String!=oText.Text:
@@ -61,14 +67,15 @@ class MyDialog():
         self.set_str()
         self.oDialog.endExecute()
     
-    #↑
+    
     def up(self):
+        #↑
         self.set_str()
         if activate_cell_offset(0,-1):
             self.redisp()
     
-    #↓
     def down(self):
+        #↓
         self.set_str()
         if activate_cell_offset(0,1):
             self.redisp()
@@ -93,10 +100,11 @@ def show_message(desktop, message):
     return msgbox.execute()
 
 
-'''
-:returns:    True:Success False:Fail
-'''
+
 def activate_cell_offset(argOffsetColumn,argOffsetRow):
+    '''
+    :returns:    True:Success False:Fail
+    '''    
     oActiveCell = get_active_cell()
     if oActiveCell is None:
         return False
@@ -147,8 +155,8 @@ if __name__ == '__main__':
     
     import unopy
     XSCRIPTCONTEXT = unopy.ScriptContext(ctx)
-    IS_EXECUTED_EXTERNAL = True
+    IS_EXECUTED_EXTERNAL = True     #when excetuted as executable
     
     disp_str(None)
 else:
-    IS_EXECUTED_EXTERNAL = False
+    IS_EXECUTED_EXTERNAL = False    #When Executed as macro
