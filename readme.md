@@ -63,7 +63,7 @@ D:\Program Files (x86)\LibreOffice 5\program
 
 To run script in Eclipse
 -----
-###### Lunch LibreOffice in listening module
+###### Lunch LibreOffice in listening mode
 This is needed before you run script in Eclise.  
 I use Ant task to do this.  
 Edit LibreOfiice executable path in build.xml.  
