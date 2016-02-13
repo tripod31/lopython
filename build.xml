@@ -9,6 +9,12 @@
             <arg line="--accept=socket,host=localhost,port=2002;urp;StarOffice.ServiceManager"/>
         </exec>
     </target>
+    
+	<target name="exec_soffice_linux">
+        <exec executable="soffice">
+            <arg line="--accept=socket,host=localhost,port=2002;urp;StarOffice.ServiceManager"/>
+        </exec>
+    </target>
 	
 	  <target name="copy2lo">
 	    <copy file="test.py" todir="${lo_dir}"/>

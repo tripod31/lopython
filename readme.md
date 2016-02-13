@@ -9,9 +9,17 @@ You can modify text in textbox.
 
 develpment environment
 -----
+###### Windows
++ Windows10Proffesional64bit
 + Eclipse 4.5.1  
 + Eclipse Pydev Plugin 4.5.4  
 + LibreOffce 5.1  
+
+###### Linux
++ debian8
++ Eclipse 4.5.1
++ Eclipse Pydev Plugin 4.5.4
++ LibreOffce 4.3
 
 Files
 -----
@@ -30,20 +38,32 @@ Calc file with button to execute macro.
 
 Setup LibreOffice
 -----
-###### Import Dialog1.xdl   
+#### Import Dialog1.xdl   
 import this dialog to libre office.
 
-###### copy test.py to LibreOffice directory
+#### copy test.py to LibreOffice directory
 This is needed to run script as macro.  
 In my case the directory is  
+
+###### Windows
 ```
 D:\Program Files (x86)\LibreOffice 5\share\Scripts\python\
+```
+###### debian  
+System directory   
+```
+/usr/lib/libreoffice/share/Scripts/python/
+```
+Or User Directory  
+```
+~/.config/libreoffice/4/user/Scripts/
 ```
 
 Setup Eclipse
 -----
 This is needed to run script in Eclipse.  
-###### Add python interpreter
+#### Add python interpreter
+This is needed in Windows Only.  
 In Window->preference.  
 
 In my case the path is  
@@ -51,28 +71,40 @@ In my case the path is
 D:\Program Files (x86)\LibreOffice 5\program\python.exe
 ```
 
-###### Apply interpreter
+#### Apply interpreter
 In project property->"Pydev Interpreter/Grammer".  
+###### Windows
 Set Interpreter above.
+###### Linux
+Set python3 interpreter.
 
-###### Add library path
+#### Add library path
 In project property->"Pydev PYTHONPATH"->"External Libraries"  
+
+###### Windows
 In my case the path is  
 ```
 D:\Program Files (x86)\LibreOffice 5\program
 ```
 
+###### Linux
+Install "python3-uno" package.Librariy path is added automatically.
+
 To run script in Eclipse
 -----
-###### Lunch LibreOffice in listening mode
+#### Lunch LibreOffice in listening mode
 This is needed before you run script in Eclise.  
 I use Ant task to do this.  
 Edit LibreOfiice executable path in build.xml.  
+###### Windows
 In my case the path is  
 ```
 D:\Program Files (x86)\LibreOffice 5\program\soffice.exe
 ```  
-In Eclipse,select build.xml->"Run As"->"Ant Build..."->"Taget"Tab->Check "Exec soffice"=>"Run".
+In Eclipse,select build.xml->"Run As"->"Ant Build..."->"Taget"Tab->Check "exec_soffice"=>"Run".
+
+###### Linux
+In Eclipse,select build.xml->"Run As"->"Ant Build..."->"Taget"Tab->Check "exec_soffice_linux"=>"Run".
 
 Known problems
 -----
@@ -82,6 +114,8 @@ I put the script in user directory.
 C:\Users\[user]\AppData\Roaming\LibreOffice\4\user\scripts\python\
 ```
 When I run the scirpt from LO,error occurs.
+
+In case of linux,I can run the script.  
 
 ###### BreakPoint in callback functions of dialog,does'nt work
 When I debug the script in Eclipse,it doesn't stop at breakpoint,in callback functions.
