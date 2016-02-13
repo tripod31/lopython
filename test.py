@@ -2,6 +2,7 @@
 import uno
 import unohelper
 from com.sun.star.awt import XActionListener    #@UnresolvedImport
+import os
 
 class MyActionListener( unohelper.Base, XActionListener ):
     def __init__(self,callback):
@@ -158,12 +159,17 @@ if __name__ == '__main__':
     ctx = resolver.resolve( "uno:socket,host=localhost,port=2002;urp;StarOffice.ComponentContext" )
     smgr = ctx.ServiceManager
     desktop = smgr.createInstanceWithContext( "com.sun.star.frame.Desktop",ctx)
-    doc = desktop.loadComponentFromURL( "private:factory/scalc","_blank", 0, () )   #invoke calc
+    #doc = desktop.loadComponentFromURL( "private:factory/scalc","_blank", 0, () )   #open new calc document    
+    #open test.ods
+    path=os.path.join(os.path.dirname(__file__), "test.ods")
+    doc = desktop.loadComponentFromURL( "file:///"+path,"_default", 0, () )   #open new calc document
     
     import unopy
     XSCRIPTCONTEXT = unopy.ScriptContext(ctx)
     IS_EXECUTED_EXTERNAL = True     #when excetuted as executable
     
     disp_str()
+    #doc.close(True)
+    
 else:
     IS_EXECUTED_EXTERNAL = False    #When Executed as macro
