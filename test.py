@@ -148,8 +148,8 @@ if __name__ == '__main__':
     resolver = localContext.ServiceManager.createInstanceWithContext("com.sun.star.bridge.UnoUrlResolver", localContext )
     ctx = resolver.resolve( "uno:socket,host=localhost,port=2002;urp;StarOffice.ComponentContext" )
     smgr = ctx.ServiceManager
-    desktop = smgr.createInstanceWithContext( "com.sun.star.frame.Desktop",ctx)
-    doc = desktop.loadComponentFromURL( "private:factory/scalc","_blank", 0, () )
+    #desktop = smgr.createInstanceWithContext( "com.sun.star.frame.Desktop",ctx)
+    #doc = desktop.loadComponentFromURL( "private:factory/scalc","_blank", 0, () )
     
     import unopy
     XSCRIPTCONTEXT = unopy.ScriptContext(ctx)
