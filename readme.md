@@ -20,6 +20,7 @@ Dialog difinition.
 
 + test.py  
 macro module.  
+Main function is "disp_str()".
 
 + unopy.py  
 This is needed when run test.py externaly,not macro.

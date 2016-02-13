@@ -17,11 +17,15 @@ class MyDialog():
     def __init__(self):
         """disp text of active cell in dialog"""
         
-        #create dialog
+        '''
+        create dialog.We have to use different way to get context,whether it is invoked as macro,or executed as script.
+        '''
         if IS_EXECUTED_EXTERNAL:
+            #when it is executed as script
             ctx = XSCRIPTCONTEXT.getComponentContext()  #get context from XSCRIPTCONTEXT
             dp = ctx.getServiceManager().createInstanceWithContext("com.sun.star.awt.DialogProvider", ctx)
         else:
+            #when it is invoked as macro
             localctx = uno.getComponentContext()  #get local component context
             dp = localctx.getServiceManager().createInstanceWithContext("com.sun.star.awt.DialogProvider", localctx)
         
@@ -43,7 +47,7 @@ class MyDialog():
         
     
     def redisp(self):
-        """redisp text of active cell in dialog"""
+        """re-display text of active cell in dialog"""
         
         oText =self.oDialog.getControl ("TextField1")
         oCell = get_active_cell()
@@ -53,7 +57,6 @@ class MyDialog():
     '''
     callback funcs
     '''
-    
     
     def set_str(self):
         oText =self.oDialog.getControl ("TextField1")
@@ -81,10 +84,16 @@ class MyDialog():
     def end_dialog(self):
         self.oDialog.endExecute()        
 
-def disp_str(arg):
+
+def disp_str(*dummy):
+    '''
+    main function
+    
+    :param:*dummy: dummy argument.to prevent argument number error when it is executed.
+        Number of arguments are varied by how it is invoked,from macro menu,form button.
+    '''
     dialog = MyDialog()
 
- 
 '''
 common funcs
 '''
@@ -96,8 +105,6 @@ def show_message(desktop, message):
     msgbox = toolkit.createMessageBox(
         window,"MESSAGEBOX", 1, 'massage', message)
     return msgbox.execute()
-
-
 
 def activate_cell_offset(argOffsetColumn,argOffsetRow):
     '''
@@ -136,6 +143,8 @@ def activate_cell(selection):
     
 def get_active_cell():
     doc = XSCRIPTCONTEXT.getDocument()
+    if not doc:
+        return None
     selection = doc.getCurrentSelection()
     if selection.ImplementationName=='ScCellObj':
         return selection
@@ -148,13 +157,13 @@ if __name__ == '__main__':
     resolver = localContext.ServiceManager.createInstanceWithContext("com.sun.star.bridge.UnoUrlResolver", localContext )
     ctx = resolver.resolve( "uno:socket,host=localhost,port=2002;urp;StarOffice.ComponentContext" )
     smgr = ctx.ServiceManager
-    #desktop = smgr.createInstanceWithContext( "com.sun.star.frame.Desktop",ctx)
-    #doc = desktop.loadComponentFromURL( "private:factory/scalc","_blank", 0, () )
+    desktop = smgr.createInstanceWithContext( "com.sun.star.frame.Desktop",ctx)
+    doc = desktop.loadComponentFromURL( "private:factory/scalc","_blank", 0, () )   #invoke calc
     
     import unopy
     XSCRIPTCONTEXT = unopy.ScriptContext(ctx)
     IS_EXECUTED_EXTERNAL = True     #when excetuted as executable
     
-    disp_str(None)
+    disp_str()
 else:
     IS_EXECUTED_EXTERNAL = False    #When Executed as macro
