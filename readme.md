@@ -1,6 +1,11 @@
 lopython
 =====
 It's eclipse project,simple python macro sample for LibreOffice Calc.  
+It displays content of active cell.  
+It can move active cell to up/downward.  
+You can modify text in textbox.   
+
+<img src="http://www.geocities.jp/tripod31hoge/images/lopython.jpg"/>
 
 develpment environment
 -----
@@ -32,7 +37,7 @@ import this dialog to libre office.
 This is needed to run script as macro.  
 In my case the directory is  
 ```
-"D:\Program Files (x86)\LibreOffice 5\share\Scripts\python\"
+D:\Program Files (x86)\LibreOffice 5\share\Scripts\python\
 ```
 
 Setup Eclipse
@@ -43,7 +48,7 @@ In Window->preference.
 
 In my case the path is  
 ```
-"D:\Program Files (x86)\LibreOffice 5\program\python.exe"
+D:\Program Files (x86)\LibreOffice 5\program\python.exe
 ```
 
 ###### Apply interpreter
@@ -54,7 +59,7 @@ Set Interpreter above.
 In project property->"Pydev PYTHONPATH"->"External Libraries"  
 In my case the path is  
 ```
-"D:\Program Files (x86)\LibreOffice 5\program"
+D:\Program Files (x86)\LibreOffice 5\program
 ```
 
 To run script in Eclipse
@@ -65,14 +70,18 @@ I use Ant task to do this.
 Edit LibreOfiice executable path in build.xml.  
 In my case the path is  
 ```
-"D:\Program Files (x86)\LibreOffice 5\program\soffice.exe"
+D:\Program Files (x86)\LibreOffice 5\program\soffice.exe
 ```  
 In Eclipse,select build.xml->"Run As"->"Ant Build..."->"Taget"Tab->Check "Exec soffice"=>"Run".
 
-About Macro
+Known problems
 -----
-It displays content of active cell.  
-It can move active cell to up/downward.  
-You can modify text in textbox.   
++ ###### I can't run script in user directory
+I put the script in user directory.  
+```
+C:\Users\[user]\AppData\Roaming\LibreOffice\4\user\scripts\python\
+```
+When I run the scirpt from LO,error occurs.
 
-<img src="http://www.geocities.jp/tripod31hoge/images/lopython.jpg"/>
++ ###### BreakPoint in callback functions of dialog,does'nt work
+When I debug the script in Eclipse,it doesn't stop at breakpoint,in callback functions.

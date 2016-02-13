@@ -56,8 +56,6 @@ class MyDialog():
     
     
     def set_str(self):
-        
-
         oText =self.oDialog.getControl ("TextField1")
         oCell = get_active_cell()
         if oCell.Text.String!=oText.Text:
@@ -69,13 +67,13 @@ class MyDialog():
     
     
     def up(self):
-        #↑
+        """↑"""
         self.set_str()
         if activate_cell_offset(0,-1):
             self.redisp()
     
     def down(self):
-        #↓
+        """↓"""
         self.set_str()
         if activate_cell_offset(0,1):
             self.redisp()
