@@ -76,12 +76,12 @@ In Eclipse,select build.xml->"Run As"->"Ant Build..."->"Taget"Tab->Check "Exec s
 
 Known problems
 -----
-+ ###### I can't run script in user directory
+###### I can't run script in user directory
 I put the script in user directory.  
 ```
 C:\Users\[user]\AppData\Roaming\LibreOffice\4\user\scripts\python\
 ```
 When I run the scirpt from LO,error occurs.
 
-+ ###### BreakPoint in callback functions of dialog,does'nt work
+###### BreakPoint in callback functions of dialog,does'nt work
 When I debug the script in Eclipse,it doesn't stop at breakpoint,in callback functions.
