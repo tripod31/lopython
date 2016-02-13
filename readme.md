@@ -1,4 +1,4 @@
-python macro sample for LibreOffice
+python macro sample for LibreOffice Calc
 =====
 It's eclipse project,simple python macro sample for LibreOffice Calc.  
 It displays content of active cell in dialog.  
