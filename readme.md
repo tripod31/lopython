@@ -1,7 +1,7 @@
-lopython
+python macro sample for LibreOffice
 =====
 It's eclipse project,simple python macro sample for LibreOffice Calc.  
-It displays content of active cell.  
+It displays content of active cell in dialog.  
 It can move active cell to up/downward.  
 You can modify text in textbox.   
 
