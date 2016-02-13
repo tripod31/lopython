@@ -12,7 +12,6 @@ develpment environment
 + Eclipse 4.5.1  
 + Eclipse Pydev Plugin 4.5.4  
 + LibreOffce 5.1  
-+ LibreOffice SDK 5.1
 
 Files
 -----
