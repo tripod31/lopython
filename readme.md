@@ -24,11 +24,11 @@ develpment environment
 Files
 -----
 + Dialog1.xdl   
-Dialog difinition.
+Dialog definition.
 
 + test.py  
 macro module.  
-Main function is "disp_str()".
+Main function is "disp_str".
 
 + unopy.py  
 This is needed when run test.py externaly,not macro.
@@ -46,10 +46,16 @@ This is needed to run script as macro.
 In my case the directory is  
 
 ###### Windows
+System directory  
 ```
 D:\Program Files (x86)\LibreOffice 5\share\Scripts\python\
 ```
-###### debian  
+User directory is below,but when I execute script in the directory,error occurs.  
+```
+C:\Users\[user]\AppData\Roaming\LibreOffice\4\user\scripts\python\
+```
+
+###### Linux  
 System directory   
 ```
 /usr/lib/libreoffice/share/Scripts/python/
@@ -64,14 +70,15 @@ Setup Eclipse
 This is needed to run script in Eclipse.  
 #### Add python interpreter
 This is needed in Windows Only.  
-In Window->preference.  
 
+###### Windows
+Set path of python bandled with LO.  
+Set it in "Window"->"preference".  
 In my case the path is  
 ```
 D:\Program Files (x86)\LibreOffice 5\program\python.exe
 ```
-
-#### Apply interpreter
+#### Select interpreter to project
 In project property->"Pydev Interpreter/Grammer".  
 ###### Windows
 Set Interpreter above.
@@ -109,12 +116,7 @@ In Eclipse,select build.xml->"Run As"->"Ant Build..."->"Taget"Tab->Check "exec_s
 Known problems
 -----
 ###### I can't run script in user directory
-I put the script in user directory.  
-```
-C:\Users\[user]\AppData\Roaming\LibreOffice\4\user\scripts\python\
-```
-When I run the scirpt from LO,error occurs.
-
+When I run the scirpt in user directory from LO,error occurs.  
 In case of linux,I can run the script.  
 
 ###### BreakPoint in callback functions of dialog,does'nt work
