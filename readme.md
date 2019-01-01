@@ -5,7 +5,7 @@ It displays content of active cell in dialog.
 It can move active cell to up/downward.  
 You can modify text in textbox.   
 
-<img src="http://www.geocities.jp/tripod31hoge/images/lopython.jpg"/>
+<img src="https://user-images.githubusercontent.com/6335693/50577268-4182f580-0e68-11e9-9c6e-129ac94d96d6.jpg"/>
 
 develpment environment
 -----
