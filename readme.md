@@ -4,7 +4,7 @@ pythonのLibreOffice Calc用マクロのサンプルの、Eclipse用プロジェ
 アクティブセルの内容をダイアログに表示します。  
 テキストをダイアログで編集できます。  
 
-<img src="http://www.geocities.jp/tripod31hoge/images/lopython.jpg"/>
+<img src="https://user-images.githubusercontent.com/6335693/50577268-4182f580-0e68-11e9-9c6e-129ac94d96d6.jpg"/>
 
 開発環境
 -----
