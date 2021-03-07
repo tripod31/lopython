@@ -1,13 +1,12 @@
-python macro sample for LibreOffice Calc
+pythonのLibreOffice Calc用マクロのサンプル
 =====
-It's eclipse project,simple python macro sample for LibreOffice Calc.  
-It displays content of active cell in dialog.  
-It can move active cell to up/downward.  
-You can modify text in textbox.   
+pythonのLibreOffice Calc用マクロのサンプルの、Eclipse用プロジェクトです。  
+アクティブセルの内容をダイアログに表示します。  
+テキストをダイアログで編集できます。  
 
 <img src="http://www.geocities.jp/tripod31hoge/images/lopython.jpg"/>
 
-develpment environment
+開発環境
 -----
 ###### Windows
 + Windows10Proffesional64bit
@@ -21,103 +20,100 @@ develpment environment
 + Eclipse Pydev Plugin 4.5.4
 + LibreOffce 4.3
 
-Files
+ファイル
 -----
 + Dialog1.xdl   
-Dialog definition.
+ダイアログ定義  
 
 + test.py  
-macro module.  
-Main function is "disp_str".
+マクロモジュール  
+メインの関数は"disp_str"  
 
 + unopy.py  
-This is needed when run test.py externaly,not macro.
+test.pyをマクロとしてではなく、直接実行するために必要  
 
 + test.ods  
-Calc file with button to execute macro.
+マクロを実行するCalcサンプル  
 
-Setup LibreOffice
+LibreOffice設定
 -----
-#### Import Dialog1.xdl   
-import this dialog to libre office.
+#### Dialog1.xdlをインポート   
 
-#### copy test.py to LibreOffice directory
-This is needed to run script as macro.  
-In my case the directory is  
+#### test.pyをLibreOfficeディレクトリにコピー  
+test.pyをマクロとして実行するために必要  
+私の環境ではディレクトリは：  
 
 ###### Windows
-System directory  
+システムディレクトリ  
 ```
 D:\Program Files (x86)\LibreOffice 5\share\Scripts\python\
 ```
-User directory is below,but when I execute script in the directory,error occurs.  
+ユーザーディレクトリに置く場合は↓、しかしマクロを実行するとエラーになった    
 ```
 C:\Users\[user]\AppData\Roaming\LibreOffice\4\user\scripts\python\
 ```
 
 ###### Linux  
-System directory   
+システムディレクトリ   
 ```
 /usr/lib/libreoffice/share/Scripts/python/
 ```
-Or User Directory  
+ユーザーディレクトリ  
 ```
 ~/.config/libreoffice/4/user/Scripts/
 ```
 
-Setup Eclipse
+Eclipse設定
 -----
-This is needed to run script in Eclipse.  
-#### Add python interpreter
-This is needed in Windows Only.  
+Eclipseからスプリプトを実行するために必要  
+#### pythonインタプリタを追加
+Windowsの場合のみ必要    
 
 ###### Windows
-Set path of python bandled with LO.  
-Set it in "Window"->"preference".  
-In my case the path is  
+LibreOfficeに付属するpythonを登録  
+"Window"->"preference"で設定  
+私の環境でのパス：  
 ```
 D:\Program Files (x86)\LibreOffice 5\program\python.exe
 ```
-#### Select interpreter to project
-In project property->"Pydev Interpreter/Grammer".  
+#### インタプリタをプロジェクトで選択
+プロジェクトのプロパティ->"Pydev Interpreter/Grammer".  
 ###### Windows
-Set Interpreter above.
+上記のインタプリタを設定
 ###### Linux
-Set python3 interpreter.
+python3インタプリタを設定
 
-#### Add library path
-In project property->"Pydev PYTHONPATH"->"External Libraries"  
+#### ライブラリパスを追加
+プロジェクトのプロパティ->"Pydev PYTHONPATH"->"External Libraries"  
 
 ###### Windows
-In my case the path is  
+私の環境でのパス：  
 ```
 D:\Program Files (x86)\LibreOffice 5\program
 ```
 
 ###### Linux
-Install "python3-uno" package.Librariy path is added automatically.
+"python3-uno"パッケージをインストールする。ライブラリパスは自動で設定される
 
-To run script in Eclipse
+Eclipseからスクリプトを実行
 -----
-#### Lunch LibreOffice in listening mode
-This is needed before you run script in Eclise.  
-I use Ant task to do this.  
-Edit LibreOfiice executable path in build.xml.  
+#### LibreOfficeをリスニングモードで起動
+私はAntタスクで起動している  
+build.xmlの中のLibreOfficeのexeファイルのパスを編集する  
 ###### Windows
-In my case the path is  
+私の環境でのパス：  
 ```
 D:\Program Files (x86)\LibreOffice 5\program\soffice.exe
 ```  
-In Eclipse,select build.xml->"Run As"->"Ant Build..."->"Taget"Tab->Check "exec_soffice"=>"Run".
+Eclipseで、build.xmlを選択->"Run As"->"Ant Build..."->"Taget"Tab->"exec_soffice"をクリック=>"Run".
 
 ###### Linux
-In Eclipse,select build.xml->"Run As"->"Ant Build..."->"Taget"Tab->Check "exec_soffice_linux"=>"Run".
+Eclipseで、build.xmlを選択->"Run As"->"Ant Build..."->"Taget"Tab->"exec_soffice_linux"をクリック=>"Run".
 
-Known problems
+既知の問題
 -----
-###### I can't run script in user directory
-When I run the scirpt in user directory from LO,error occurs.  
-In case of linux,I can run the script.  
+###### ユーザーディレクトリに置いたマクロをLibreOfficeから実行するとエラー
+Windowsの場合のみ    
 
-###### BreakPoint in callback functions of dialog,does'nt work
-When I debug the script in Eclipse,it doesn't stop at breakpoint,in callback functions.
+###### ダイアログのコールバック関数内のブレークポイントが動作しない
+Eclipseでスクリプトをデバッグする時、コールバック関数内のブレークポイントで止まらない  
