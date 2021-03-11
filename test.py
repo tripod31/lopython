@@ -1,7 +1,8 @@
-# -*- coding: utf_8 -*-
+# pylint: disable=import-error
+
 import uno
 import unohelper
-from com.sun.star.awt import XActionListener    #@UnresolvedImport
+from com.sun.star.awt import XActionListener
 import os
 
 class MyActionListener( unohelper.Base, XActionListener ):
@@ -93,7 +94,7 @@ def disp_str(*dummy):
     :param:*dummy: dummy argument.to prevent argument number error when it is executed.
         Number of arguments are varied by how it is invoked,from macro menu,form button.
     '''
-    dialog = MyDialog()
+    _dialog = MyDialog()
 
 '''
 common funcs

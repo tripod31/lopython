@@ -1,7 +1,5 @@
-#
-#!     # unopy.py
-# -*- coding: utf_8 -*-
- 
+ # pylint: disable=import-error
+
 import uno
 import unohelper
  
