@@ -1,5 +1,5 @@
 # pythonのLibreOffice Calc用マクロのサンプル
-pythonのLibreOffice Calc用マクロのサンプルの、vscode用プロジェクトです。  
+pythonのLibreOffice Calc用マクロのサンプルです。  
 アクティブセルの内容をダイアログに表示します。  
 テキストをダイアログで編集できます。  
 ## 動作確認環境
@@ -26,7 +26,7 @@ test.pyをマクロとして実行するために必要
 C:\Users\(USER)\AppData\Roaming\LibreOffice\4\user\scripts\python\
 ```
 ## VSCode設定
-VSCodeからスプリプトを実行するために必要  
+VSCodeからスプリプトをデバッグするために必要  
 #### pythonインタプリタを追加  
 "Python:Default Interpreter Path"を設定
 LibreOfficeに付属するpythonを登録    
@@ -34,16 +34,13 @@ LibreOfficeに付属するpythonを登録
 ```
 C:\Program Files\LibreOffice\program\python.exe
 ```
-## VSCodeからスクリプトを実行
+## VSCodeからスクリプトをデバッグ
 #### LibreOfficeをリスニングモードで起動
 スクリプトを実行する前に必要  
-私はtasks.jsonで起動している  
-.vscode/tasks.jsonの中のLibreOfficeのexeファイルのパスを編集する  
-私の環境でのパス：  
+soffice.exeに引数を付けて起動  
 ```
-C:/Program Files/LibreOffice/program/soffice.exe
+"C:/Program Files/LibreOffice/program/soffice.exe" --accept='socket,host=localhost,port=2021;urp;'
 ```  
-VSCodeで、「ターミナル」→「タスクの実行」→"launch-soffice"  
 ## 既知の問題
 VSCodeでスクリプトをデバッグする時、ダイアログのコールバック関数内のブレークポイントで止まらない  
 ## ダイアログ画面
