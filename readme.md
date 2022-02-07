@@ -44,7 +44,7 @@ C:\Program Files\LibreOffice\program\python.exe
 C:/Program Files/LibreOffice/program/soffice.exe
 ```  
 VSCodeで、「ターミナル」→「タスクの実行」→"launch-soffice"  
-<!--
 ## 既知の問題
--->
+VSCodeでスクリプトをデバッグする時、ダイアログのコールバック関数内のブレークポイントで止まらない  
+## ダイアログ画面
 <img src="https://user-images.githubusercontent.com/6335693/50577268-4182f580-0e68-11e9-9c6e-129ac94d96d6.jpg"/>
