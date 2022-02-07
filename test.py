@@ -157,12 +157,12 @@ if __name__ == '__main__':
 #    import uno
     localContext = uno.getComponentContext()
     resolver = localContext.ServiceManager.createInstanceWithContext("com.sun.star.bridge.UnoUrlResolver", localContext )
-    ctx = resolver.resolve( "uno:socket,host=localhost,port=2002;urp;StarOffice.ComponentContext" )
+    ctx = resolver.resolve( "uno:socket,host=localhost,port=2021;urp;StarOffice.ComponentContext" )
     smgr = ctx.ServiceManager
     desktop = smgr.createInstanceWithContext( "com.sun.star.frame.Desktop",ctx)
     #doc = desktop.loadComponentFromURL( "private:factory/scalc","_blank", 0, () )   #open new calc document    
     #open test.ods
-    path=os.path.join(os.path.dirname(__file__), "test.ods")
+    path=os.path.join(os.getcwd(), "test.ods")
     doc = desktop.loadComponentFromURL( "file:///"+path,"_default", 0, () )   #open new calc document
     
     import unopy

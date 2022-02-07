@@ -1,7 +1,5 @@
 .git/
 __pycache__/*
-.settings/
 .vscode/
-.*.html
 *.pyc
 
