@@ -39,7 +39,7 @@ C:\Program Files\LibreOffice\program\python.exe
 スクリプトを実行する前に必要  
 soffice.exeに引数を付けて起動  
 ```
-"C:/Program Files/LibreOffice/program/soffice.exe" --accept='socket,host=localhost,port=2021;urp;'
+"C:\Program Files\LibreOffice\program\soffice.exe" --accept='socket,host=localhost,port=2021;urp;'
 ```  
 ## 既知の問題
 VSCodeでスクリプトをデバッグする時、ダイアログのコールバック関数内のブレークポイントで止まらない  
