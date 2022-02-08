@@ -55,7 +55,7 @@ if __name__ == '__main__':
     #test.odsを開く
     ui = CreateScriptService("UI")
     docs = ui.Documents()
-    path=os.path.join(os.getcwd(), "test.ods")
+    path=os.path.join(os.getcwd(), "test_sf.ods")
     url = "file:///{}".format(path.replace("\\","/"))
     if not url in docs:   
         doc = ui.OpenDocument(path)
