@@ -78,7 +78,7 @@ def set_cell_text(dlg):
         doc.SetValue(cell.AbsoluteName,text.Value) 
 
 def exec_dialog(event:uno):
-    dlg = CreateScriptService('SFDialogs.Dialog', 'GlobalScope', "Standard", "Dialog2")
+    dlg = CreateScriptService('SFDialogs.Dialog', 'GlobalScope', "Standard", "Dialog_sf")
     get_cell_text(dlg)
     rc = dlg.Execute()
     if rc == dlg.OKBUTTON:
