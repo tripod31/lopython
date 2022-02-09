@@ -22,6 +22,13 @@ test_sf.pyをマクロとして実行するために必要
 ```
 C:\Users\(USER)\AppData\Roaming\LibreOffice\4\user\scripts\python\
 ```
+#### calc.pyをLibreOfficeディレクトリにコピー  
+test_sf.pyから別のモジュールを参照するために必要  
+私の環境ではディレクトリは：  
+```
+C:\Users\(USER)\AppData\Roaming\LibreOffice\4\user\scripts\python\pythonpath\
+```
+pythonpathディレクトリを作成する必要がありました。  
 ## VSCode設定
 VSCodeからスプリプトをデバッグするために必要  
 #### pythonインタプリタを追加  
