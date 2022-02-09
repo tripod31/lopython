@@ -4,12 +4,7 @@ import uno
 import sys
 import calc
 
-'''
-メモ：
-Scriptforge.BasicのThisComponentで、アクティブなドキュメントのオブジェクトを取得できる。マクロとしてでなく、LO外部から実行した場合も
-'''
-
-def get_cell_text(dlg):
+def set_dlg_text(dlg):
     """
     ダイアログにアクティブセルのテキストを表示
     """
@@ -30,8 +25,8 @@ def set_cell_text(dlg):
         doc.SetValue(cell.AbsoluteName,text.Value) 
 
 def exec_dialog(event:uno):
-    dlg = CreateScriptService('SFDialogs.Dialog', 'GlobalScope', "Standard", "Dialog_sf")
-    get_cell_text(dlg)
+    dlg = CreateScriptService('SFDialogs.Dialog', 'GlobalScope', "Standard", "editcell_python")
+    set_dlg_text(dlg)
     rc = dlg.Execute()
     if rc == dlg.OKBUTTON:
         set_cell_text(dlg)
@@ -45,7 +40,7 @@ def refresh(event:uno):
     ダイアログにアクティブセルのテキストを再表示
     """
     button = CreateScriptService('SFDialogs.DialogEvent', event)
-    get_cell_text(button.Parent)
+    set_dlg_text(button.Parent)
 
 def update(event:uno):
     """セルに書き込む"""
@@ -57,14 +52,14 @@ def up(event:uno):
     button = CreateScriptService('SFDialogs.DialogEvent', event)
     set_cell_text(button.Parent)
     if calc.activate_cell_offset(0,-1):
-        get_cell_text(button.Parent)
+        set_dlg_text(button.Parent)
     
 def down(event:uno):
     """↓ボタン"""
     button = CreateScriptService('SFDialogs.DialogEvent', event)
     set_cell_text(button.Parent)
     if calc.activate_cell_offset(0,1):
-        get_cell_text(button.Parent)
+        set_dlg_text(button.Parent)
 
 if __name__ == '__main__':
     #プログラムとして実行された場合(LOの外から)
@@ -77,7 +72,7 @@ if __name__ == '__main__':
     #calcファイルを開く
     ui = CreateScriptService("UI")
     docs = ui.Documents()
-    path=os.path.join(os.getcwd(), "test_sf.ods")
+    path=os.path.join(os.getcwd(), "editcell.ods")
     url = "file:///{}".format(path.replace("\\","/"))
     if not url in docs:   
         doc = ui.OpenDocument(path)

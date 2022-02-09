@@ -8,22 +8,24 @@ pythonのLibreOffice Calc用マクロのサンプルです。
 + LibreOffce 7.2  
 ## ファイル
 -----
-+ Dialog_sf.xdl   
++ editcell_python.xdl   
 ダイアログ定義  
-+ test_sf.py  
-マクロモジュール  
-+ test_sf.ods  
++ editcell.py  
+マクロモジュール
++ calc.py  
+マクロモジュールから参照されるモジュール  
++ editcell.ods  
 マクロを実行するCalcサンプル  
 ## LibreOffice設定
 #### Dialog_sf.xdlをインポート   
-#### test_sf.pyをLibreOfficeディレクトリにコピー  
-test_sf.pyをマクロとして実行するために必要  
+#### editcell.pyをLibreOfficeディレクトリにコピー  
+editcell.pyをマクロとして実行するために必要  
 私の環境ではディレクトリは：  
 ```
 C:\Users\(USER)\AppData\Roaming\LibreOffice\4\user\scripts\python\
 ```
 #### calc.pyをLibreOfficeディレクトリにコピー  
-test_sf.pyから別のモジュールを参照するために必要  
+マクロモジュールから別のモジュールを参照するために必要  
 私の環境ではディレクトリは：  
 ```
 C:\Users\(USER)\AppData\Roaming\LibreOffice\4\user\scripts\python\pythonpath\
