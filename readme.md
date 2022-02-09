@@ -17,7 +17,7 @@ pythonのLibreOffice Calc用マクロのサンプルです。
 + editcell.ods  
 マクロを実行するCalcサンプル  
 ## LibreOffice設定
-#### Dialog_sf.xdlをインポート   
+#### ダイアログ定義editcell_python.xdlをインポート   
 #### editcell.pyをLibreOfficeディレクトリにコピー  
 editcell.pyをマクロとして実行するために必要  
 私の環境ではディレクトリは：  
