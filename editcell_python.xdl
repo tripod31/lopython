@@ -10,13 +10,13 @@
   <dlg:button dlg:id="CommandButton2" dlg:tab-index="4" dlg:left="182" dlg:top="293" dlg:width="54" dlg:height="15" dlg:value="↓">
    <script:event script:event-name="on-performaction" script:macro-name="vnd.sun.star.script:editcell.py$down?language=Python&amp;location=user" script:language="Script"/>
   </dlg:button>
-  <dlg:button dlg:id="button_update" dlg:tab-index="5" dlg:left="66" dlg:top="293" dlg:width="54" dlg:height="15" dlg:page="-1" dlg:value="Update">
+  <dlg:button dlg:id="button_update" dlg:tab-index="2" dlg:left="66" dlg:top="293" dlg:width="54" dlg:height="15" dlg:page="-1" dlg:value="Update">
    <script:event script:event-name="on-performaction" script:macro-name="vnd.sun.star.script:editcell.py$update?language=Python&amp;location=user" script:language="Script"/>
   </dlg:button>
-  <dlg:button dlg:id="button_refresh" dlg:tab-index="6" dlg:left="265" dlg:top="293" dlg:width="54" dlg:height="15" dlg:page="-1" dlg:value="Refresh">
+  <dlg:button dlg:id="button_refresh" dlg:tab-index="5" dlg:left="265" dlg:top="293" dlg:width="54" dlg:height="15" dlg:page="-1" dlg:value="Refresh">
    <script:event script:event-name="on-performaction" script:macro-name="vnd.sun.star.script:editcell.py$refresh?language=Python&amp;location=user" script:language="Script"/>
   </dlg:button>
-  <dlg:button dlg:id="button_close" dlg:tab-index="2" dlg:left="330" dlg:top="293" dlg:width="54" dlg:height="16" dlg:value="Close" dlg:button-type="cancel">
+  <dlg:button dlg:id="button_close" dlg:tab-index="6" dlg:left="330" dlg:top="293" dlg:width="54" dlg:height="16" dlg:value="Close" dlg:button-type="cancel">
    <script:event script:event-name="on-mousedown" script:macro-name="vnd.sun.star.script:test.py$end_dialog?language=Python&amp;location=share" script:language="Script"/>
   </dlg:button>
  </dlg:bulletinboard>

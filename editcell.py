@@ -24,7 +24,11 @@ def set_cell_text(dlg):
     if cell:
         doc.SetValue(cell.AbsoluteName,text.Value) 
 
-def exec_dialog(event:uno):
+def exec_dialog(*event:uno):
+    """
+    event
+        LOのメニュー「ツール」→「マクロ」→「マクロを実行」でこの関数を実行する場合、引数なしで呼ばれる。コントロールのイベントで呼ばれる場合、event引数が入る。event引数は使用していない。なので可変長変数にしている。
+    """
     dlg = CreateScriptService('SFDialogs.Dialog', 'GlobalScope', "Standard", "editcell_python")
     set_dlg_text(dlg)
     rc = dlg.Execute()
