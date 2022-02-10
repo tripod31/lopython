@@ -50,4 +50,4 @@ soffice.exeに引数を付けて起動
 ## 既知の問題
 VSCodeでスクリプトをデバッグする時、ダイアログのイベントハンドラ関数内のブレークポイントで止まらない  
 ## ダイアログ画面
-<img src="https://user-images.githubusercontent.com/6335693/50577268-4182f580-0e68-11e9-9c6e-129ac94d96d6.jpg"/>
+![editcell](https://user-images.githubusercontent.com/6335693/153326258-db64a78c-891e-4cf2-a36a-a54ddfd5dd6a.png)
