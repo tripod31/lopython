@@ -1,5 +1,4 @@
-# pythonのLibreOffice Calc用マクロのサンプル
-pythonのLibreOffice Calc用マクロのサンプルです。  
+# LibreOffice Calc用pythonマクロのサンプル
 アクティブセルの内容をダイアログに表示します。  
 テキストをダイアログで編集できます。  
 ## 動作確認環境
